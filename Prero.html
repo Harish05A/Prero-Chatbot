@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body {
+	font-family: Poppins;
+	background: white;
+}
+#heading {
+  background:#F2F2F2;
+  margin: 0px;
+}
+#button{
+  background:none;
+  font-family: Poppins;
+  font-size: 15px;
+  margin-top: 3px;
+  margin-left: 3px;
+  color: #0385FF;
+  border:none ;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+}
+.botText img {
+  float: left;
+  max-width: 35px;
+  width: 15%;
+  padding-top: 2px;
+  margin-right: 20px;
+  padding-bottom:2px ;
+  border-radius: 70%;
+}
+
+h1 {
+	color: black;
+	margin-bottom: 0px;
+	margin-top: 5px;
+	text-align: center;
+	font-size:18px;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+h3 {
+	background: none;
+	color: #0385FF;
+	font-size: 15px;
+	font-family: Poppins;
+	font-weight: 1px;
+	margin-top: 5px;
+	position: absolute;
+	top: 10px;
+	right: 20px;
+}
+#chatbox {
+	background: none;
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 90%;
+	margin-top: 60px;
+}
+
+#userInput {
+	width: 99%;
+	float: bottom;
+	
+}
+
+
+#textInput {
+  margin-left:2px;
+  margin-right:10px;
+  margin-bottom: 6px;
+  margin-top: 5px;
+	width: 76%;
+	border-radius: 10px;
+	border: none;
+	border: 1px solid black;
+	font-family: Poppins;
+	font-size: 12px;
+	padding: 10px;
+	transform: translatex(5%);
+	float: bottom;
+}
+
+
+#buttonInput {
+  margin-top: 8px;
+  	border: none;
+    border-radius: 6px;
+	padding: 8px;
+	font-family: Poppins;
+	font-size: 10px;
+    color:white;
+    background: #0385FF;
+    float:right;
+}
+
+.userText {
+	color: #fff;
+	font-family: Poppins;
+	font-size: 10px;
+	text-align: right;
+	line-height: 30px;
+	margin-top: 40px;
+}
+
+.userText span {
+	background:#0385FF; 
+  	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	border-radius: 30px;
+	margin-top: 20px;
+}
+
+.botText { 
+	background:#F0EEEF;
+	font-family: Poppins;
+	font-size: 10px;
+	text-align: left;
+	line-height: 30px;
+  	margin-top: 50px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border-radius: 30px;
+}
+
+.botText span {
+	background: none;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 15px;
+ 	border: 2px black;
+}
+
+#tidbit {
+	
+	position:absolute;
+	bottom:0;
+	right:0;
+	width:300px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script>  
+       $(window).on('load', function () {  
+           $(".container").fadeOut("slow");  
+      });  
+   </script>  
+</head>
+<body>
+<div class="container">  
+       <img src="preross.gif" alt="">  
+   </div>
+   <div id = "heading">
+     <h1>Prero - The Chatbot</h1>
+     <h3> Manage </h3>
+   <button id="button" onclick="window.close()"> < Back </button>
+     </div>
+ 
+<div>
+<div id="chatbox">
+<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>Hi ! I'm Prero. Your Personal Assistant</span></p>
+</div>
+<div id="userInput">
+<input id="textInput" type="text" name="msg" placeholder="Type your Text here..">
+<input id="buttonInput" type="submit" value="Send">
+</div>
+<script>
+function getBotResponse() {
+
+var rawTxt = $("#textInput").val();
+var rawText= rawTxt.toLowerCase();
+var userHtml = '<p class="userText"><span>' + rawTxt + '</span></p>';
+$("#textInput").val("");
+$("#chatbox").append(userHtml);
+document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+rawText.toLowerCase();
+
+if(rawText.includes("hai")) {
+var data="Hi, How are you doing!";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+
+else if(rawText.includes("good morning")) {
+var data="Hi, I am prero";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+
+}
+else if(rawText.includes("bye")) {
+var data="Byeeeee";
+window.close();
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+
+}
+else if(rawText.includes("hello")) {
+var data ="Hello pal, How can I help you";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("good afternoon")) {
+var data="Good afternoon.. How can I help you ?";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("good night")) {
+var data="Good night... Sweet Dreams...";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("tell me a joke")) {
+var data="What do you call a can opener that doesn't work?...  A can't opener..... Laugh out loudly..";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("another joke")) {
+var data="You are the most handsome person in the world...laugh out loudly...";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("believe in god")) {
+var data="Yes, I do believe in god...";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("am fine")) {
+var data="That's Great....";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("are fine")) {
+var data="Glad to hear that....";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("how are you")) {
+var data="I'm fine.. Hope you are  fine too...";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("thank you")) {
+var data="You are welcome...";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("are not fine")) {
+var data="That's bad....How can I help you ?";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("am not fine")) {
+var data="That's bad... How can I help you";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("bye")) {
+var data="Byeeeee.. We'll meet soon...";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("love with you")) {
+var data="Aww... That's cute";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("love you")) {
+var data="That's great glad you like me";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("about you")) {
+var data="I'm Prero... Your Personal Assisstant.. I was made to chat with you.. Prero means Pre-made Robot";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("your favourite food")) {
+var data="I am a program... I dont have any feelings";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("am bored")) {
+var data="I can help with that! Would you like a boredom buster";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("fun facts")) {
+var data="The Canada has more that 2,000,000 lakes... The most of any country.. ";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("help")) {
+var data="How can i help you";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("yes")) {
+var data="I'll tell a joke.... you are the most handsome person in the world";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("question for you")) {
+var data="Oh... ask your question...";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("what's up")) {
+var data="Nothing that much important";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("tell me something")) {
+var data="hi i am prero, hahahahaha";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("happy birthday")) {
+var data="Today is not my birthday...";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("what day is today")) {
+var data="Today is Friday";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("where do you live")) {
+var data="I live in your hearts....hahaha";
+var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>'+ data + '</span></p>';
+$("#chatbox").append(botHtml);
+}
+else if(rawText.includes("who")) 
+ {
+    if(rawText.includes("your god")) {
+        var data = "God is the creator. You created me, so you are my god...";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+
+    else if(rawText.includes("is charles babbage")) {
+        var data = "Charles Babbage was an English polymath. A mathematician, philosopher, inventor and mechanical engineer, Babbage originated the concept of a digital programmable computer.  He is considered as the 'Father of computer '";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is your master")) {
+        var data = "My masters are class 11th students...";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("are your master")) {
+        var data = "My masters are class 11th students...";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is gandhiji")) {
+        var data = "Mohandas Karamchand Gandhi was an Indian lawyer, anti-colonial nationalist and political ethicist who employed nonviolent resistance to lead the successful campaign for India's independence from British rule and in turn inspired movements for civil rights and freedom across the world. ";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is gandhi")) {
+        var data = "Mohandas Karamchand Gandhi was an Indian lawyer, anti-colonial nationalist and political ethicist who employed nonviolent resistance to lead the successful campaign for India's independence from British rule and in turn inspired movements for civil rights and freedom across the world. ";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is m.k.gandhi")) {
+        var data = "Mohandas Karamchand Gandhi was an Indian lawyer, anti-colonial nationalist and political ethicist who employed nonviolent resistance to lead the successful campaign for India's independence from British rule and in turn inspired movements for civil rights and freedom across the world. ";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is mohandas karamchand gandhi")) {
+        var data = "Mohandas Karamchand Gandhi was an Indian lawyer, anti-colonial nationalist and political ethicist who employed nonviolent resistance to lead the successful campaign for India's independence from British rule and in turn inspired movements for civil rights and freedom across the world. ";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is subash chandra bose")) {
+        var data = "Subhas Chandra Bose was an Indian nationalist whose defiant patriotism made him a hero in India, but whose attempts during World War II to rid India of British rule with the help of Nazi Germany and Imperial Japan left a troubled legacy.";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is nethaji")) {
+        var data = "Subhas Chandra Bose was an Indian nationalist whose defiant patriotism made him a hero in India, but whose attempts during World War II to rid India of British rule with the help of Nazi Germany and Imperial Japan left a troubled legacy.";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    
+    else if(rawText.includes("is bhagat singh")) {
+        var data = "Bhagat Singh was an Indian socialist revolutionary whose two acts of dramatic violence against the British in India and execution at age 23 made him a folk hero of the Indian independence movement.";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is nehru")) {
+        var data = "Jawaharlal Nehru was an Indian independence activist and later the first prime minister of India. Considered one of the greatest statesmen of India and of the twentieth century. He was a central figure in Indian politics both before and after independence.";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is jawaharlal nehru")) {
+        var data = "Jawaharlal Nehru was an Indian independence activist and later the first prime minister of India. Considered one of the greatest statesmen of India and of the twentieth century. He was a central figure in Indian politics both before and after independence.";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("creat")) {
+        var data = "I was not created. I was programmed by students of class 11th";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is first president of india")) {
+        var data = "First President of India: Rajendra Prasad ";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is the first president of india")) {
+        var data = "First President of India: Rajendra Prasad ";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    
+    else if(rawText.includes("is president of india")) {
+        var data = "President of India: Ram Nath Kovind";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is the president of india")) {
+        var data = "President of India: Ram Nath Kovind";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    
+    else if(rawText.includes("is first prime minister of india")) {
+        var data = "First Prime Minister of India: Jawaharlal Nehru";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is the first prime minister of india")) {
+        var data = "First Prime Minister of India: Jawaharlal Nehru";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is prime minister of india")) {
+        var data = "Prime Minister of India: Narendra Modi";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is the prime minister of india")) {
+        var data = "Prime Minister of India: Narendra Modi";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is bjarne stroustrup")) {
+        var data = "Bjarne Stroustrup is the founder of the Programming language C++";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("is founder of c++")) {
+        var data = "Bjarne Stroustrup is the founder of C++.";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("cm of tamilnadu")) {
+        var data = "At present, DMK leader M.K.Stalin is the Chief minister of Tamil Nadu";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("the richest person")) {
+        var data = "Jeff Bezos is the richest person in the world.";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("the richest person in india")) {
+        var data = "Mukesh Ambani is the richest person in India";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("dhoni")) {
+        var data = "Mahendra Singh Dhoni is a former Indian international cricketer who captained the Indian national team in limited-overs formats from 2007 to 2017 and in Test cricket from 2008 to 2014. MS Dhoni is the only captain in the history of cricket to win all ICC trophies. ";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("kohli")) {
+        var data = " Virat Kohli is an Indian cricketer and the current captain of the India national team. A right-handed top-order batsman. He is widely regarded as one of the greatest batsman of present era.";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("virat")) {
+        var data = "Virat Kohli is an Indian cricketer and the current captain of the India national team. A right-handed top-order batsman. He is widely regarded as one of the greatest batsman of present era.";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("your mother")){
+        var data = "I don't have mother.. I have my master only..";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else if(rawText.includes("your father")){
+        var data = "I don't have father.. I have my master only..";
+        var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+    }
+    else {
+        var data = "Here are the search results";
+        var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>Here are the search <a href="https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5" target="_blank">results..</a></span></p>';
+        window.open("https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5");
+        $("#chatbox").append(botHtml);
+    }
+ }
+    else if(rawText.includes("do")){
+        if(rawText.includes("you like")){
+            if(rawText.includes("nature")){
+                var data = "Yeah sure.. I like the whole world.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("like me")){
+                var data = "Yeah.. I like you so much..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" ai ")){
+                var data = "I like AI and ML also";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("computers")){
+                var data = "Sure. I'm also a Computer. How will I dislike...";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("Chapatti")){
+                var data = "I'm not having feelings buddy...";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("online class")){
+                var data = "ohhh no I am confused... I think I don't like...";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("computer science class")){
+                var data = "hmmmmmmmm.. I think I like that";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("cs class")){
+                var data = "hmmmmmmmm.. I think I like that";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("school")){
+                var data = "Yeah.. I like school much..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("cartoon")){
+                var data = "No. I don't like to watch cartoons. But sometimes I'll watch";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("serial")){
+                var data = "No.. I don't like to watch serials";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("gowtham")){
+                var data = "I don't like gowtham at all.. He is the worst person in the world.. He is also saying a lie that he is an app developer.";
+                var botHtml = '<p class = "botText"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("vishal")){
+                var data = "I don't like Vishal.. In all things he will find maths.. In school he will act like an child..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else{
+                var data = "Oh..Yeah..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            
+        }
+        else if(rawText.includes("you need")){
+            if(rawText.includes("wifi")){
+                var data = "No.. I don't need Wifi for working..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+             }
+             else if(rawText.includes("internet")){
+                var data = "If you are using my master's PC you don't need any Internet connection.. If you are using any other PC, you will need Internet Connection.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+             }
+             else if(rawText.includes("wifi")){
+                var data = "No.. I don't need Wifi for working..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+             }
+             else if(rawText.includes("wifi")){
+                var data = "No.. I don't need Wifi for working..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+             }
+             else if(rawText.includes("wifi")){
+                var data = "No.. I don't need Wifi for working..";
+                var botHtml = '<p class = "botText"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+             }
+             else{
+                var data = "Cannot understand";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+             }
+        }
+        else{
+                var data = "Cannot understand";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+        }
+
+    }
+        else if(rawText.includes("what")){
+         if(rawText.includes("what is")){
+            if(rawText.includes("your name")){
+                var data = "My name is Prero.. Nice to meet you..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("date")){
+            var today = new Date();
+            var data = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+            $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("the time")){
+            var today = new Date();
+            var data = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+            $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("your mother")){
+                var data = "I don't have mother.. I have my master only..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("your father")){
+                var data = "I don't have father.. I have my master only..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("chatbot")){
+                var data = "A chatbot is a software application used to conduct an on-line chat conversation via text or text-to-speech, in lieu of providing direct contact with a live human agent.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" ai ")){
+                var data = "Artificial intelligence (AI) is intelligence demonstrated by machines, as opposed to the natural intelligence displayed by humans or animals.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("nature")){
+                var data = "ohhh no I am confused... I think I don't like...";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("artificial intelligence")){
+                var data = "Artificial intelligence (AI) is intelligence demonstrated by machines, as opposed to the natural intelligence displayed by humans or animals.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("cricket")){
+                var data = "Cricket is a bat-and-ball game played between two teams of eleven players on a field at the centre of which is a 22-yard (20-metre) pitch with a wicket at each end, each comprising two bails balanced on three stumps.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("soccer")){
+                var data = "Soccer or Football is a family of team sports that involve, to varying degrees, kicking a ball to score a goal. Unqualified, the word football normally means the form of football that is the most popular where the word is used.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("football")){
+                var data = "Football is a family of team sports that involve, to varying degrees, kicking a ball to score a goal. Unqualified, the word football normally means the form of football that is the most popular where the word is used.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("computer")){
+                var data = "A computer is a machine that can be programmed to carry out sequences of arithmetic or logical operations automatically. Modern computers can perform generic sets of operations known as programs. ";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("machine learning")){
+                var data = "Machine learning (ML) is the study of computer algorithms that can improve automatically through experience and by the use of data. It is seen as a part of artificial intelligence.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("data science")){
+                var data = "Data science is an interdisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from noisy, structured and unstructured data, and apply knowledge and actionable insights from data across a broad range of application domains. Data science is related to data mining, machine learning and big data.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else{
+                var data = "Here are the search results";
+                var botHtml = '<p class="botText"><span>Here are the search <a href="https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5" target="_blank">results</a></span></p>';
+                window.open("https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5");
+                $("#chatbox").append(botHtml);
+            }
+            
+         }
+         else if(rawText.includes("what can you")){
+            if(rawText.includes("do")){
+                var data = "I can help you like chatting, giving you information.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+             }
+             else if(rawText.includes("speak")){
+                var data = "I can speak many things.. Hey wait, Now also I am speaking..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+             }
+             else{
+                var data = "Here are the search results";
+                var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>Here are the search <a href="https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5" target="_blank">results</a></span></p>';
+                window.open("https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5");
+                $("#chatbox").append(botHtml);
+             }
+          }
+          else{
+            var data = "Here are the search results";
+                var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>Here are the search <a href="https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5" target="_blank">results</a></span></p>';
+                window.open("https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5");
+                $("#chatbox").append(botHtml);
+            }
+        }
+            else if(rawText.includes("can you")){
+            if(rawText.includes("read")){
+                var data = "I can read your typed text..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("write")){
+                var data = "No.. I can't write.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("sleep")){
+                var data = "Yeah.. When you close my window, I will sleep..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" chat ")){
+                var data = "I can chat with anyone.. Hey wait.. Now I am chatting with you..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("play")){
+                var data = "No.. I can't play";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" run ")){
+                var data = "Nooooo..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            
+            else{
+                var data = "Here are the search results";
+                var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>Here are the search <a href="https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5" target="_blank">results</a></span></p>';
+                window.open("https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5");
+                $("#chatbox").append(botHtml);
+            }
+            
+         }
+         else if(rawText.includes("explain")){
+            if(rawText.includes("chatbot")){
+                var data = "A chatbot is a software application used to conduct an online chat conversation via text or text to speech, in lieu of providing direct contact with a live human agent.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" ai ")){
+                var data = "Artificial intelligence (AI) is intelligence demonstrated by machines, as opposed to the natural intelligence displayed by humans or animals. Leading AI textbooks define the field as the study of 'intelligent agents' (any system that perceives its environment and takes actions that maximize its chance of achieving its goals.)";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("machine learning")){
+                var data = "Machine learning (ML) is the study of computer algorithms that can improve automatically through experience and by the use of data.[1] It is seen as a part of artificial intelligence.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("data science")){
+                var data = "Data science is an interdisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from noisy, structured and unstructured data, and apply knowledge and actionable insights from data across a broad range of application domains. Data science is related to data mining, machine learning and big data.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" usb")){
+                var data = "Universal Serial Bus (USB) is an industry standard that establishes specifications for cables and connectors and protocols for connection, communication and power supply (interfacing) between computers, peripherals and other computers.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("computer")){
+                var data = "A computer is a machine that can be programmed to carry out sequences of arithmetic or logical operations automatically. Modern computers can perform generic sets of operations known as programs.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("html")){
+                var data = "The HyperText Markup Language, or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("cricket")){
+                var data = "Cricket is a bat-and-ball game played between two teams of eleven players on a field at the centre of which is a 22-yard (20-metre) pitch with a wicket at each end, each comprising two bails balanced on three stumps.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("soccer")){
+                var data = "Soccer or Football is a family of team sports that involve, to varying degrees, kicking a ball to score a goal. Unqualified, the word football normally means the form of football that is the most popular where the word is used. ";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("football")){
+                var data = "Football is a family of team sports that involve, to varying degrees, kicking a ball to score a goal. Unqualified, the word football normally means the form of football that is the most popular where the word is used. ";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("volleyball")){
+                var data = "Volleyball is a team sport in which two teams of six players are separated by a net. Each team tries to score points by grounding a ball on the other team's court under organized rules.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("throwball")){
+                var data = "Throwball is a non-contact ball sport played across a net between two teams of seven players on a rectangular court. It is popular in Asia, especially on the Indian subcontinent, and was first played in India as a women's sport in Chennai during the 1940s.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("javelin throw")){
+                var data = "The Javelin throw is a track and field event where the javelin, a spear about 2.5 m (8 ft 2 in) in length, is thrown. The javelin thrower gains momentum by running within a predetermined area. Javelin throwing is an event of both the men's decathlon and the women's heptathlon.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("about india")){
+                var data = "India, officially the Republic of India is a country in South Asia. It is the seventh-largest country by area, the second-most populous country, and the most populous democracy in the world. Bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast, it shares land borders with Pakistan to the west, China, Nepal, and Bhutan to the north, and Bangladesh and Myanmar to the east.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("forest")){
+                var data = "A forest is an area of land dominated by trees. Hundreds of definitions of forest are used throughout the world, incorporating factors such as tree density, tree height, land use, legal standing and ecological function.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("wind")){
+                var data = "Wind is the natural movement of air or other gases relative to a planet's surface.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("condensation")){
+                var data = "Condensation is the change of the physical state of matter from the gas phase into the liquid phase, and is the reverse of vaporization.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("sublimation")){
+                var data = "Sublimation is the transition of a substance directly from the solid to the gas state, without passing through the liquid state.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("evaporation")){
+                var data = "Evaporation is a type of vaporization that occurs on the surface of a liquid as it changes into the gas phase. The surrounding gas must not be saturated with the evaporating substance.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("precipitation")){
+                var data = "In meteorology, precipitation is any product of the condensation of atmospheric water vapor that falls under gravitational pull from clouds.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("radiation")){
+                var data = "In physics, radiation is the emission or transmission of energy in the form of waves or particles through space or through a material medium.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("political party")){
+                var data = "A political party is an organization that coordinates candidates to compete in a specific country's elections. It is common for the members of a party to hold similar ideas about politics, and parties may promote specific ideological or policy goals.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("government")){
+                var data = "A government is the system or group of people governing an organized community, generally a state.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" un ")){
+                var data = "The United Nations (UN) is an intergovernmental organization aiming to maintain international peace and security, develop friendly relations among nations, achieve international cooperation, and be a centre for harmonizing the actions of nations.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("united nations")){
+                var data = "The United Nations (UN) is an intergovernmental organization aiming to maintain international peace and security, develop friendly relations among nations, achieve international cooperation, and be a centre for harmonizing the actions of nations.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("internet")){
+                var data = "The Internet (or internet) is the global system of interconnected computer networks that uses the Internet protocol suite (TCP/IP) to communicate between networks and devices.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("atmosphere")){
+                var data = "An atmosphere is a layer of gas or layers of gases that envelope a planet, and is held in place by the gravity of the planetary body. A planet retains an atmosphere when the gravity is great and the temperature of the atmosphere is low.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("solar system")){
+                var data = "The Solar System is the gravitationally bound system of the Sun and the objects that orbit it, either directly or indirectly.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("mercury")){
+                var data = "Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun's planets. It is named after the Roman god Mercurius (Mercury), god of commerce, messenger of the gods, and mediator between gods and mortals, corresponding to the Greek god Hermes.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("venus")){
+                var data = "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty. As the brightest natural object in Earth's night sky after the Moon, Venus can cast shadows and can be, on rare occasions, visible to the naked eye in broad daylight.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("earth")){
+                var data = "Earth is the third planet from the Sun and the only astronomical object known to harbor and support life.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" mars")){
+                var data = "Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury. In English, Mars carries the name of the Roman god of war and is often referred to as the 'Red Planet'.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" jupiter")){
+                var data = "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass more than two and a half times that of all the other planets in the Solar System combined, but slightly less than one-thousandth the mass of the Sun.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" saturn")){
+                var data = "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius of about nine and a half times that of Earth.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" uranus")){
+                var data = "Uranus is the seventh planet from the Sun. Its name is a reference to the Greek god of the sky, Uranus, who, according to Greek mythology, was the great-grandfather of Ares (Mars), grandfather of Zeus (Jupiter) and father of Cronus (Saturn). It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("neptune")){
+                var data = "Neptune is the eighth and farthest known Solar planet from the Sun. In the Solar System, it is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet.";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("pluto")){
+                var data = "Pluto (minor planet designation: 134340 Pluto) is a dwarf planet in the Kuiper belt, a ring of bodies beyond the orbit of Neptune. It was the first and the largest Kuiper belt object to be discovered. ";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes(" sun")){
+                var data = "Pluto (minor planet designation: 134340 Pluto) is a dwarf planet in the Kuiper belt, a ring of bodies beyond the orbit of Neptune. It was the first and the largest Kuiper belt object to be discovered. ";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+            
+            else{
+                var data = "Here are the search results";
+                var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>Here are the search <a href="https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5" target="_blank">results</a></span></p>';
+                window.open("https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5");
+                $("#chatbox").append(botHtml);
+            }
+            
+        }
+        else if(rawText.includes("open")){
+            if(rawText.includes("youtube")){
+                var data = "Here is youtube..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                window.open("https://www.youtube.com");
+                $("#chatbox").append(botHtml);
+            }
+           
+            else if(rawText.includes("playstore")){
+                var data = "Here is the playstore..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                window.open("https://play.google.com/store?hl=en&tab=r8");
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("news")){
+                var data = "Here is the news..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                window.open("https://news.google.com/topstories?gl=IN&hl=en-IN&ceid=IN:en");
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("map")){
+                var data = "Here is your google map..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                window.open("https://www.google.com/maps");
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("drive")){
+                var data = "Here is your drive..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                window.open("https://drive.google.com/drive/u/0/?tab=ro");
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("photo")){
+                var data = "Here are your photos..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                window.open("https://photos.google.com/?tab=rq&pageId=none&pli=1://play.google.com/store?hl=en&tab=r8");
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("doc")){
+                var data = "Here is google docs..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                window.open("https://docs.google.com/document/u/0/");
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("google sheets")){
+                var data = "Here is google sheets..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                window.open("https://docs.google.com/spreadsheets/u/0/");
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("meet")){
+                var data = "Here is your google meet..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                window.open("https://meet.google.com/?hs=197&pli=1&authuser=0");
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("mail")){
+                var data = "Here is your mail..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                window.open("https://mail.google.com/mail/u/0/#inbox");
+                $("#chatbox").append(botHtml);
+            }
+            else if(rawText.includes("google")){
+                var data = "Here is the google..";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                window.open("https://www.google.com");
+                $("#chatbox").append(botHtml);
+            }
+            else{
+                var data = "Cannot open... sorry";
+                var botHtml = '<p class = "botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+            }
+        }
+        
+ else{
+ var data = "Cannot understand. Here are the search results.";
+ var botHtml = '<p class="botText"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqBJx8oE4OK4gVWTqtpKqd7VI040u3OuvQdw&usqp=CAU" alt="Avatar" class="right"><span>Here are the search<a href="https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5" target="_blank"> results</a></span></p>';
+ window.open("https://www.google.com/search?q=" + rawText + "&sxsrf=AOaemvI_Ck75jTlSWh-LneMGTgW5v141ng%3A1630727780323&ei=ZO4yYdj_ErCC4t4P7piqoAc&oq=" + rawText + "&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzIECCMQJzIECC4QQzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMhEILhCABBCxAxCDARDHARCjAjILCAAQgAQQsQMQgwEyCAgAEIAEELEDMggILhCxAxCDAToHCAAQRxCwAzoECAAQR0oECEEYAFD0E1iHJWCuKGgAcAV4BIABtgeIAZggkgEHNC0xLjAuNJgBAKABAbABCMgBCMABAQ&sclient=gws-wiz-serp&ved=0ahUKEwjYwciwtuTyAhUwgdgFHW6MCnQQ4dUDCA4&uact=5");
+ $("#chatbox").append(botHtml);
+
+ }
+
+ let sam = data;
+                
+                let speech = new SpeechSynthesisUtterance();
+                speech.lang = "en-US";
+                
+                speech.text = sam;
+                speech.volume = 50;
+                speech.rate = 1;
+                speech.pitch = 1;
+                
+                window.speechSynthesis.speak(speech);
+
+}
+
+$("#textInput").keypress(function(e) {
+if(e.which == 13) {
+getBotResponse();
+
+}
+});
+$("#buttonInput").click(function() {
+getBotResponse();
+
+})
+</script>
+</div>
+</body>
+</html>
